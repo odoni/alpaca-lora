@@ -81,7 +81,6 @@ def train(
     model = LlamaForCausalLM.from_pretrained(
         base_model,
         load_in_8bit=True,
-        device_map=device_map,
         max_memory={0: "10GiB", 1: "6GiB", "cpu": "20GiB"},
         device_map={'':0}
     )
