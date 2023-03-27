@@ -1,4 +1,6 @@
 import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
 import sys
 from typing import List
 
@@ -20,7 +22,6 @@ from peft import (
     get_peft_model_state_dict,
     set_peft_model_state_dict,
 )
-
 
 def train(
     # model/data params
