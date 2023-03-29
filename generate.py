@@ -41,7 +41,7 @@ def main(
             base_model,
             load_in_8bit=load_8bit,
             torch_dtype=torch.float16,
-            max_memory={0: "10GiB", 1: "6GiB", "cpu": "20GiB"},
+            max_memory={0: "8GiB", 1: "6GiB", "cpu": "20GiB"},
             device_map={'':0}
         )
         model = PeftModel.from_pretrained(
