@@ -1,5 +1,5 @@
-import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+# import os
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 import sys
 
@@ -42,14 +42,14 @@ def main(
             load_in_8bit=load_8bit,
             torch_dtype=torch.float16,
             max_memory={0: "8GiB", 1: "5GiB", "cpu": "20GiB"},
-            device_map={'':0}
+            device_map='auto'
         )
         model = PeftModel.from_pretrained(
             model,
             lora_weights,
             torch_dtype=torch.float16,
             max_memory={0: "8GiB", 1: "5GiB", "cpu": "20GiB"},
-            device_map={'':0}
+            device_map='auto'
         )
     elif device == "mps":
         model = LlamaForCausalLM.from_pretrained(
