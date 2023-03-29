@@ -1,3 +1,6 @@
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
 import sys
 
 import fire
@@ -26,7 +29,7 @@ except:
 def main(
     load_8bit: bool = False,
     base_model: str = "",
-    lora_weights: str = "tloen/alpaca-lora-7b",
+    lora_weights: str = "/home/odoni/lora2/lora-odoni/alpaca-lora/odoni-lora-alpaca",
 ):
     assert base_model, (
         "Please specify a --base_model, e.g. --base_model='decapoda-research/llama-7b-hf'"
@@ -38,7 +41,8 @@ def main(
             base_model,
             load_in_8bit=load_8bit,
             torch_dtype=torch.float16,
-            device_map="auto",
+            max_memory={0: "10GiB", 1: "6GiB", "cpu": "20GiB"},
+            device_map={'':0}
         )
         model = PeftModel.from_pretrained(
             model,
