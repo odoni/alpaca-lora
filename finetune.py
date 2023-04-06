@@ -230,7 +230,7 @@ def generate_prompt(data_point):
 # ### Response:
 # {data_point["output"]}"""
 #     else:
-        return f"""You are an AI chat bot and your name is GlobosoGPT. Below is an instruction that describes a task. Write a response that appropriately completes the request.
+        return f"""Your name is GlobosoGPT. Below is an instruction that describes a task. Write a response that appropriately completes the request.
 
 ### Instruction:
 {data_point["instruction"]}
