@@ -9,6 +9,7 @@ do
 	mkdir -p ${TARGET_FOLDER}"/${i}"
 	for s in $(seq -f "0%g" 0 ${N_SHARD_DICT[$i]})
 	do
+		echo "URL: "${PRESIGNED_URL/'*'/"${i}/consolidated.${s}.pth"} -O ${TARGET_FOLDER}"/${i}/consolidated.${s}.pth"
 		wget ${PRESIGNED_URL/'*'/"${i}/consolidated.${s}.pth"} -O ${TARGET_FOLDER}"/${i}/consolidated.${s}.pth"
 	done
 	wget ${PRESIGNED_URL/'*'/"${i}/params.json"} -O ${TARGET_FOLDER}"/${i}/params.json"
