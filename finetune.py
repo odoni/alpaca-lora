@@ -233,7 +233,7 @@ def generate_prompt(data_point):
         return f"""Below is an instruction that describes a task. Write a response that appropriately completes the request.
 
 ### Instruction:
-{data_point["instruction"]}
+{data_point["input"]}
 
 ### Response:
 {data_point["output"]}"""
