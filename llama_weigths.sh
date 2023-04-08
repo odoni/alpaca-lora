@@ -13,7 +13,7 @@ N_SHARD_DICT["65B"]="7"
 for i in ${MODEL_SIZE//,/ }
 do
 	echo "Downloading ${i}"
-	echo "ppp: " ${N_SHARD_DICT}
+	echo "ppp: " ${N_SHARD_DICT[$i]}
 	# mkdir -p ${TARGET_FOLDER}"/${i}"
 	# for s in $(seq -f "0%g" 0 ${N_SHARD_DICT[$i]})
 	# do
