@@ -6,7 +6,7 @@ TARGET_FOLDER="./weights"
 for i in ${MODEL_SIZE//,/ }
 do
 	echo "Downloading ${i}"
-	mkdir -p ${TARGET_FOLDER}"/$${i}"
+	mkdir -p ${TARGET_FOLDER}"/${i}"
 	for s in $(seq -f "0%g" 0 ${N_SHARD_DICT[$i]})
 	do
 		wget ${PRESIGNED_URL/'*'/"${i}/consolidated.${s}.pth"} -O ${TARGET_FOLDER}"/${i}/consolidated.${s}.pth"
